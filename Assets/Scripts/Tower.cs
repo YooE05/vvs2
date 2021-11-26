@@ -7,15 +7,12 @@ public class Tower : MonoBehaviour
 {
     [SerializeField] Transform rotatedObj;
     [SerializeField] Transform target;
-    //int damagePoints = 10;
     [SerializeField] int rangeOfTower = 30;
+
+    public WayPoint waypoinoftower;
 
     [SerializeField] ParticleSystem shootFX;
 
-    private void Start()
-    {
-
-    }
     void Update()
     {
         SetTargetEnemy();

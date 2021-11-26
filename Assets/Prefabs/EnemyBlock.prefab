@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 6266038973346431083}
   - component: {fileID: 7728399098565728161}
   - component: {fileID: 8252357807918892795}
+  - component: {fileID: 2887938709340695621}
   m_Layer: 0
   m_Name: EnemyBlock
   m_TagString: Untagged
@@ -155,7 +156,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridPos: {x: 0, y: 0}
   pointFrom: {fileID: 0}
+  isClikable: 1
   isExplored: 0
+  towerPref: {fileID: 4424920319639944433, guid: d4ffa6280cf3b6d45932d970880dddb7,
+    type: 3}
+--- !u!65 &2887938709340695621
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2153909284738849009}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: -5, z: 0}
 --- !u!1 &8252357809285464859
 GameObject:
   m_ObjectHideFlags: 0

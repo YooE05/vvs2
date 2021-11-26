@@ -38,12 +38,15 @@ public class Pathfinding : MonoBehaviour
     void PathBuild()
     {
         path.Add(endWaypoint);
+        endWaypoint.isClikable = false;
+        startWaypoint.isClikable = false;
         WayPoint previous = endWaypoint.pointFrom;
         while (previous != startWaypoint)
         {
             path.Add(previous);
-            previous.SetTopColour(Color.cyan);
+            previous.isClikable = false;
             previous = previous.pointFrom;
+
         }
         path.Add(startWaypoint);
         path.Reverse();
@@ -108,16 +111,6 @@ public class Pathfinding : MonoBehaviour
             else
             {
                 grid.Add(gridPos, waypoint);
-                if (gridPos == startWaypoint.GetGridPos())
-                { waypoint.SetTopColour(Color.green); }
-                else if (gridPos == endWaypoint.GetGridPos())
-                {
-                    waypoint.SetTopColour(Color.red);
-                }
-                else
-                {
-                    waypoint.SetTopColour(Color.black);
-                }
             }
         }
     }

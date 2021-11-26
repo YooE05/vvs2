@@ -5,8 +5,9 @@ using UnityEngine;
 public class EnemyDamage : MonoBehaviour
 {
     [SerializeField] int enemyHealth;
-    [SerializeField] ParticleSystem hitFX;
     [SerializeField] Collider meshCollider;
+    [SerializeField] ParticleSystem hitFXPrefab;
+    [SerializeField] ParticleSystem dieFXPrefab;
 
     void Start()
     {
@@ -16,8 +17,12 @@ public class EnemyDamage : MonoBehaviour
     private void OnParticleCollision(GameObject other) //чё за other
     {
         enemyHealth--;
-        hitFX.Play();
+        hitFXPrefab.Play();
         if (enemyHealth < 0)
-        { Destroy(gameObject); }
+        {
+            var dieFX = Instantiate(dieFXPrefab, transform.position, Quaternion.identity);
+            dieFX.Play();
+            Destroy(gameObject);
+        }
     }
 }

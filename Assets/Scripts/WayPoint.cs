@@ -6,10 +6,20 @@ public class WayPoint : MonoBehaviour
 {
     public Vector2Int gridPos;
     public WayPoint pointFrom;
+    public bool isPlaced = false;
+
+    public bool isClikable = true;
 
     const int gridSize = 10;
     public bool isExplored = false;
 
+    void OnMouseOver()
+    {
+        if (Input.GetMouseButtonDown(0) && (isClikable) && (!isPlaced))
+        {
+            FindObjectOfType<TowerFactory>().AddTower(this);
+        }
+    }
     void Start()
     {
 
@@ -27,9 +37,4 @@ public class WayPoint : MonoBehaviour
             Mathf.RoundToInt(transform.position.z / gridSize));
     }
 
-    public void SetTopColour(Color colour)
-    {
-        MeshRenderer topMesh = transform.Find("Top").GetComponent<MeshRenderer>();//transform.Find("name") указывает на дочерний компонент с именем name
-        topMesh.material.color = colour;
-    }
 }
