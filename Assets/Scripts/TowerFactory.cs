@@ -8,18 +8,20 @@ public class TowerFactory : MonoBehaviour
     [SerializeField] int towerLimit = 3;
     [SerializeField] Tower towerPrefab;
     [SerializeField] GameObject towerParent;
-    [HideInInspector] public bool isSpawning;
+  //  [HideInInspector] public bool isSpawning;
 
     Queue<Tower> towerQueue = new Queue<Tower>();
 
     private void Awake()
     {
-        isSpawning = false;
+    //    isSpawning = false;
     }
     public void AddTower(WayPoint baseWaypoint)
     {
-        if (isSpawning)
+
+        if (!FindObjectOfType<viewController>().isPause)
         {
+            Debug.Log("a");
             if (towerQueue.Count < towerLimit)
             {
                 InstantiateTower(baseWaypoint);

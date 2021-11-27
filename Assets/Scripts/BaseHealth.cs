@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class BaseHealth : MonoBehaviour
 {
-    public int health = 5;
+    public int startHealth = 5;
+    [HideInInspector] public int health;
     [SerializeField] int damageByHit = 1;
 
     [SerializeField] Text healthText;
@@ -15,12 +16,13 @@ public class BaseHealth : MonoBehaviour
 
     void Start()
     {
+        health = startHealth;
         healthText.text = health.ToString();
     }
     private void OnTriggerEnter(Collider other)
     {
         health -= damageByHit;
-        FindObjectOfType<GameController>().defetEnemies++;
+        FindObjectOfType<GameController>().defeatEnemies++;
         GetComponent<AudioSource>().PlayOneShot(sfxBaseAtack, 0.5f);
         healthText.text = health.ToString();
     }

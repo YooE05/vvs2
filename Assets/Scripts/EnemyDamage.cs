@@ -29,7 +29,7 @@ public class EnemyDamage : MonoBehaviour
             var dieFX = Instantiate(dieFXPrefab, transform.position, Quaternion.identity);
             dieFX.Play();
             Destroy(gameObject);
-            FindObjectOfType<GameController>().defetEnemies++;
+            FindObjectOfType<GameController>().defeatEnemies++;
         }
     }
 }

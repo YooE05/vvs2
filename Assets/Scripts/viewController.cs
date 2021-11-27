@@ -9,59 +9,60 @@ public class viewController : MonoBehaviour
 {
     [Header("UI")]
 
-    public TextMeshProUGUI gapText;
-    public TextMeshProUGUI countdownText;
-
-    public TextMeshProUGUI leftTunnelText;
-    public TextMeshProUGUI rightTunnelText;
-    public Animator animatorUI;
-    public GameObject rotateSigns;
-    public Image energyBar;
+    public Text preLoadText;
+    [SerializeField] Text HP;
+    [SerializeField] Text enemiesCountText;
 
     [SerializeField] GameObject restartPanel;
     [SerializeField] GameObject pausePanel;
-    [SerializeField] GameObject pauseButton;
+    public GameObject pauseButton;
     [SerializeField] Text resultText;
-    [SerializeField] TextMeshProUGUI HPText;
-    [SerializeField] TextMeshProUGUI energyText;
-    [SerializeField] TextMeshProUGUI scoreText;
-    [SerializeField] TextMeshProUGUI highscoreText;
+    [SerializeField] Text HPText;
+    [SerializeField] Text scoreText;
+    [SerializeField] Text highscoreText;
 
-    [SerializeField] GameController gameController;
+    [HideInInspector] public bool isPause;
 
-/*
-    public void ShowRestartPanel()
+    private void Awake()
+    {
+        isPause = true;
+    }
+    public void StartGame()
+    {
+        isPause = false;
+        preLoadText.text = "";
+        pauseButton.SetActive(true);
+        HP.gameObject.SetActive(true);
+        enemiesCountText.gameObject.SetActive(true);
+    }
+    public void ShowRestartPanel(GameController gameController)
     {
         Time.timeScale = 0f;
-        countdownText.text = "";
-        gapText.text = "";
+        HP.gameObject.SetActive(false);
+        enemiesCountText.gameObject.SetActive(false);
 
         restartPanel.SetActive(true);
         pauseButton.SetActive(false);
 
-        if (gameController.plMovement.enterCollider.tag == "Finish")
+        if (gameController.defeatEnemies== FindObjectOfType<EnemySpawner>().enemiesCount)
         {
             resultText.text = "Поздравляем. Вы победили!";
-
         }
         else 
         {
             resultText.text = "Не отчаиваяйся, получится в следующий раз!";
-            //взрыв корабля
         }
 
-        HPText.text = gameController.healthController.m_CurrentHealth.ToString();
-        energyText.text = ((int)gameController.energy).ToString();
-        scoreText.text =  gameController.score.ToString();
-        highscoreText.text =  gameController.highscore.ToString();
+        HPText.text = FindObjectOfType<BaseHealth>().health.ToString();
+        scoreText.text = (gameController.defeatEnemies - FindObjectOfType<BaseHealth>().startHealth+ FindObjectOfType<BaseHealth>().health).ToString();
     }
+
 
     public void ShowPausePanel()
     {
-        gameController.timer.Restart();
+
         pausePanel.SetActive(true);
-        gameController.isPause = true;
-        gameController.plMovement.isPause = true;
+       isPause = true;
 
         pauseButton.SetActive(false);
 
@@ -70,13 +71,11 @@ public class viewController : MonoBehaviour
 
     public void Resume()
     {
-        gameController.timer.Stop();
-        gameController.deltaTimeTunnel = gameController.timer.Elapsed.Seconds * 1f + gameController.timer.Elapsed.Milliseconds / 1000f;
-
+       
         Time.timeScale = 1;
 
-        gameController.isPause = false;
-        gameController.plMovement.isPause = false;
+        isPause = false;
+
         pausePanel.SetActive(false);
         pauseButton.SetActive(true);
     }
@@ -84,14 +83,14 @@ public class viewController : MonoBehaviour
     public void GoToMenu()
     {
         Time.timeScale = 1;
-        if (FindObjectOfType<MenuSettings>())
+       /* if (FindObjectOfType<MenuSettings>())
         {
             MenuSettings menusettings = FindObjectOfType<MenuSettings>();
             DestroyObject(menusettings.gameObject);
-        }
-        SceneManager.LoadScene("MenuScreen");
+        }*/
+        SceneManager.LoadScene("MainMenu");
     }
-*/
+
     public void RestartLevel()
     {
         Time.timeScale = 1;

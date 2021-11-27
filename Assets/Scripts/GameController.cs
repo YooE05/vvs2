@@ -5,17 +5,17 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
-    [SerializeField] Text preLoadText;
-     EnemySpawner enemySpawner;
-     BaseHealth healthController;
+
+    [HideInInspector] public EnemySpawner enemySpawner;
+     public BaseHealth healthController;
+    [SerializeField] viewController viewController;
 
     TowerFactory towerFactory;
 
-   public  int defetEnemies=0;
+    public int defeatEnemies = 0;
     private void Awake()
     {
         enemySpawner = GetComponent<EnemySpawner>();
-        healthController = GetComponent<BaseHealth>();
         towerFactory = GetComponent<TowerFactory>();
     }
     void Start()
@@ -25,44 +25,48 @@ public class GameController : MonoBehaviour
 
     IEnumerator GameProcces()
     {
-        preLoadText.text = "Ready?";
-        yield return new WaitForSeconds(3f);
-        preLoadText.text = "GO";
-        yield return new WaitForSeconds(1f);
-        preLoadText.text = "";
-        towerFactory.isSpawning = true;
+        /*  viewController.preLoadText.text = "Ready?";
+          yield return new WaitForSeconds(3f);
+          viewController.preLoadText.text = "GO";
+          yield return new WaitForSeconds(1f);
+  */
+        viewController.StartGame();
+
+        //towerFactory.isSpawning = true;
         enemySpawner.SpawnEnemies();
 
-        while (healthController.health > 0 && defetEnemies < enemySpawner.enemiesCount )
+        while (healthController.health > 0 && defeatEnemies < enemySpawner.enemiesCount)
         {
             yield return null;
         }
 
+        yield return new WaitForSeconds(1f);
         Debug.Log("END");
         EndGame();
     }
 
     void EndGame()
     {
-        
-        
-      /*      isEndOfGame = true;
-            plMovement.isPause = true;
 
-            lastStage = stage;
-            stage = GameStage.ending;
+        /*      isEndOfGame = true;
+              plMovement.isPause = true;
 
-            healthController.StopGame();
-            //player.SetActive(false);
+              lastStage = stage;
+              stage = GameStage.ending;
 
-            SaveScore();
-            viewController.ShowRestartPanel();
-*/
-        
+              healthController.StopGame();
+              //player.SetActive(false);
+
+              SaveScore();*/
+
+        viewController.ShowRestartPanel(FindObjectOfType<GameController>());
+
+
     }
-    // Update is called once per frame
+
+
     void Update()
     {
-        
+
     }
 }
