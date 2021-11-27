@@ -1,28 +1,43 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemySpawner : MonoBehaviour
 {
-    int enemyCount = 5;
+    public  int enemiesCount = 10;
+
     [Range(0.1f, 60f)]
     [SerializeField]
-
     float spawnDelay = 2f;
+    [HideInInspector] public bool isSpawning;
+
+    [SerializeField] AudioClip sfxSpawn;
+
+    [SerializeField] Text countEnemiesText;
+
     [SerializeField] GameObject enemyToSpawn;
 
-    void Start()
+    private void Awake()
     {
-        StartCoroutine(Spawn(enemyCount));
+        isSpawning = false;
+    }
+    void Start()
+    {     
+        countEnemiesText.text = enemiesCount.ToString();
     }
 
-    IEnumerator Spawn(int spawnCount)
+    public void SpawnEnemies()
+    { StartCoroutine(Spawn(enemiesCount)); }
+     IEnumerator Spawn(int spawnCount)
     {
         while (spawnCount > 0)
         {
-            spawnCount--;
-            Instantiate(enemyToSpawn, gameObject.transform.position, Quaternion.identity, gameObject.transform);
-            yield return new WaitForSeconds(spawnDelay);
+                GetComponent<AudioSource>().PlayOneShot(sfxSpawn, 0.05f);
+                spawnCount--;
+                Instantiate(enemyToSpawn, gameObject.transform.position, Quaternion.identity, gameObject.transform);
+                countEnemiesText.text = spawnCount.ToString();
+                yield return new WaitForSeconds(spawnDelay);
         }
     }
 }

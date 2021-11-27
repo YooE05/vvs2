@@ -7,6 +7,9 @@ using System.Linq;
 public class EnemyMovement : MonoBehaviour
 {
 
+    [SerializeField] ParticleSystem endFXPrefab;
+    [SerializeField] float enemySpeed = 0.6f;
+
     void Start()
     {
         Pathfinding pathfinder = FindObjectOfType<Pathfinding>();
@@ -17,13 +20,21 @@ public class EnemyMovement : MonoBehaviour
 
     IEnumerator FollowPath(List<WayPoint> path)
     {
-        print("STARTING");
+       // print("STARTING");
         foreach (WayPoint block in path)
         {
             transform.position = block.transform.position;
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(enemySpeed);
         }
-        print("End");
+       // print("End");
+        DethActions();
+    }
+
+    private void DethActions()
+    {
+        var endFX = Instantiate(endFXPrefab, transform.position, Quaternion.identity);
+        endFX.Play();
+        Destroy(gameObject);
     }
 
 

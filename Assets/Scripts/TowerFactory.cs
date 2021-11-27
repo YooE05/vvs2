@@ -8,17 +8,25 @@ public class TowerFactory : MonoBehaviour
     [SerializeField] int towerLimit = 3;
     [SerializeField] Tower towerPrefab;
     [SerializeField] GameObject towerParent;
+    [HideInInspector] public bool isSpawning;
 
     Queue<Tower> towerQueue = new Queue<Tower>();
 
+    private void Awake()
+    {
+        isSpawning = false;
+    }
     public void AddTower(WayPoint baseWaypoint)
     {
-        if (towerQueue.Count < towerLimit)
+        if (isSpawning)
         {
-            InstantiateTower(baseWaypoint);
+            if (towerQueue.Count < towerLimit)
+            {
+                InstantiateTower(baseWaypoint);
+            }
+            else
+            { MoveTower(baseWaypoint); }
         }
-        else
-        { MoveTower(baseWaypoint); }
     }
 
     private void MoveTower(WayPoint baseWaypoint)
