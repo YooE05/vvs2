@@ -6,16 +6,19 @@ public class WayPoint : MonoBehaviour
 {
     public Vector2Int gridPos;
     public WayPoint pointFrom;
+
+    public bool hasEnviromental = false;
+
     public bool isPlaced = false;
 
     public bool isClikable = true;
 
-    const int gridSize = 10;
+    public int gridSize = 1;
     public bool isExplored = false;
 
     void OnMouseOver()
     {
-        if (Input.GetMouseButtonDown(0) && (isClikable) && (!isPlaced))
+        if (Input.GetMouseButtonDown(0) && (isClikable) && (!isPlaced) && (!hasEnviromental))
         {
             FindObjectOfType<TowerFactory>().AddTower(this);
         }

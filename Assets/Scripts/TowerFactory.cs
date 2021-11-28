@@ -21,7 +21,6 @@ public class TowerFactory : MonoBehaviour
 
         if (!FindObjectOfType<viewController>().isPause)
         {
-            Debug.Log("a");
             if (towerQueue.Count < towerLimit)
             {
                 InstantiateTower(baseWaypoint);

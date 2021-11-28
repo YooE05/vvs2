@@ -19,6 +19,8 @@ namespace EMM
         int _currentSelectedLevelCount;
         string _currentSelectedLevelSceneName;
 
+        bool firstLoad;
+
         // Use this for initialization
         void Start()
         {
@@ -26,11 +28,24 @@ namespace EMM
             _totalLevels = AllLevelsData.Count;
 
             //init
+            firstLoad= true;
+            _currentSelectedLevelCount = FindObjectOfType<DontDestroySettings>().getLastLevelIndex();
             ChangeLevel();
         }
 
         public void ChangeLevel()
         {
+            if (firstLoad)
+            { firstLoad = false; }
+            else
+            {
+                if (_currentSelectedLevelCount < _totalLevels - 1)
+                    _currentSelectedLevelCount++;
+                else
+                    _currentSelectedLevelCount = 0;
+                FindObjectOfType<DontDestroySettings>().changeLastLevelIndex(_currentSelectedLevelCount);
+            }
+            
             //set UI
             LevelTitleText.text = AllLevelsData[_currentSelectedLevelCount].LevelTitle;
             LevelDescriptionText.text = AllLevelsData[_currentSelectedLevelCount].LevelDescription;
@@ -38,13 +53,40 @@ namespace EMM
             _currentSelectedLevelSceneName = AllLevelsData[_currentSelectedLevelCount].SceneToLoad;
 
             //increment count
-            if (_currentSelectedLevelCount < _totalLevels-1)
+            /*if (_currentSelectedLevelCount < _totalLevels-1)
                 _currentSelectedLevelCount++;
             else
-                _currentSelectedLevelCount = 0;
+                _currentSelectedLevelCount = 0;*/
 
             PlayClickSound(); 
         }
+        public void ChangeLevelBack()
+        {
+            if (firstLoad)
+            { firstLoad = false; }
+            else
+            {
+                if (_currentSelectedLevelCount != 0)
+                    _currentSelectedLevelCount--;
+                else
+                    _currentSelectedLevelCount = _totalLevels - 1;
+                FindObjectOfType<DontDestroySettings>().changeLastLevelIndex(_currentSelectedLevelCount);
+            }
+            //set UI
+            LevelTitleText.text = AllLevelsData[_currentSelectedLevelCount].LevelTitle;
+            LevelDescriptionText.text = AllLevelsData[_currentSelectedLevelCount].LevelDescription;
+            LevelImage.sprite = AllLevelsData[_currentSelectedLevelCount].LevelSprite;
+            _currentSelectedLevelSceneName = AllLevelsData[_currentSelectedLevelCount].SceneToLoad;
+
+            //increment count
+           /* if (_currentSelectedLevelCount!=0)
+                _currentSelectedLevelCount--;
+            else
+                _currentSelectedLevelCount = _totalLevels-1;*/
+
+            PlayClickSound();
+        }
+
 
         void PlayClickSound()
         {

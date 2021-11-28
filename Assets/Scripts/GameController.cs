@@ -7,7 +7,7 @@ public class GameController : MonoBehaviour
 {
 
     [HideInInspector] public EnemySpawner enemySpawner;
-     public BaseHealth healthController;
+    public BaseHealth healthController;
     [SerializeField] viewController viewController;
 
     TowerFactory towerFactory;

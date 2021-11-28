@@ -61,7 +61,6 @@ public class Pathfinding : MonoBehaviour
             HaltIfEndFound();
             FindNeighbours();
             searchCenter.isExplored = true;
-
         }
     }
 
@@ -80,18 +79,23 @@ public class Pathfinding : MonoBehaviour
         foreach (Vector2Int direction in directions)
         {
             Vector2Int neighbourCoordinats = searchCenter.GetGridPos() + direction;
+
             if (grid.ContainsKey(neighbourCoordinats))
             {
-                AddNeighbour(neighbourCoordinats);
+               
+                    AddNeighbour(neighbourCoordinats);
+
             }
         }
 
     }
 
-    private void AddNeighbour(Vector2Int neighbourCoordinats)
+    private void AddNeighbour(Vector2Int neighbourCoordinats) 
     {
         WayPoint neighbour = grid[neighbourCoordinats];
-        if (!(neighbour.isExplored || queue.Contains(neighbour)))
+
+
+        if (!(neighbour.isExplored || queue.Contains(neighbour) || grid[neighbourCoordinats].hasEnviromental ))
         {
             queue.Enqueue(neighbour);
             neighbour.pointFrom = searchCenter;
@@ -101,8 +105,10 @@ public class Pathfinding : MonoBehaviour
     private void LoadBlocks()
     {
         var waypoints = FindObjectsOfType<WayPoint>();
+
         foreach (WayPoint waypoint in waypoints)
         {
+            //Debug.LogWarning("choose grid ");
             var gridPos = waypoint.GetGridPos();
             if (grid.ContainsKey(gridPos))
             {
