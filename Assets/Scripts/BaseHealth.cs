@@ -14,7 +14,7 @@ public class BaseHealth : MonoBehaviour
     [SerializeField] AudioClip sfxBaseAtack;
 
 
-    void Start()
+    void Awake()
     {
         health = startHealth;
         healthText.text = health.ToString();

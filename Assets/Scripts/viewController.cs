@@ -44,7 +44,7 @@ public class viewController : MonoBehaviour
         restartPanel.SetActive(true);
         pauseButton.SetActive(false);
 
-        if (gameController.defeatEnemies== FindObjectOfType<EnemySpawner>().enemiesCount)
+        if (FindObjectOfType<BaseHealth>().health>0)
         {
             resultText.text = "Поздравляем. Вы победили!";
         }

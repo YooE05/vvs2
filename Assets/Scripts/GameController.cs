@@ -40,7 +40,7 @@ public class GameController : MonoBehaviour
             yield return null;
         }
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         Debug.Log("END");
         EndGame();
     }

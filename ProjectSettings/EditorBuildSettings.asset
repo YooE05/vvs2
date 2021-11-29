@@ -20,4 +20,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Dungeon/Dungeon2.unity
     guid: 08f721ed16989cb46ab4514ecb474fb0
+  - enabled: 1
+    path: Assets/Scenes/Desert/Desert1.unity
+    guid: 91a52af22a00c0f4aa3e2997110045dc
+  - enabled: 1
+    path: Assets/Scenes/Desert/Desert2.unity
+    guid: 81d4f35091595db4a9f1da6ddb340c85
+  - enabled: 1
+    path: Assets/Scenes/Winter/Winter1.unity
+    guid: f6537ccdade852546884c8e10e94a33a
+  - enabled: 1
+    path: Assets/Scenes/Winter/Winter2.unity
+    guid: 2b421e9087dd85d488ff69fb2dd0c7eb
   m_configObjects: {}

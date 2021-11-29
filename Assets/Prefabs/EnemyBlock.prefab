@@ -57,6 +57,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -81,6 +82,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!64 &2595890706073230
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -156,10 +158,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridPos: {x: 0, y: 0}
   pointFrom: {fileID: 0}
+  hasEnviromental: 0
+  isPlaced: 0
   isClikable: 1
+  gridSize: 10
   isExplored: 0
-  towerPref: {fileID: 4424920319639944433, guid: d4ffa6280cf3b6d45932d970880dddb7,
-    type: 3}
 --- !u!65 &2887938709340695621
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -220,6 +223,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -244,6 +248,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!102 &8252357809285464861
 TextMesh:
   serializedVersion: 3

@@ -1411,7 +1411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b918274d5480e94aa93fe3a338849ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemiesCount: 5
+  enemiesCount: 100
   spawnDelay: 2
   isSpawning: 0
   sfxSpawn: {fileID: 8300000, guid: 1430bde4175cf174c9021933c2a3def9, type: 3}
@@ -3393,8 +3393,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridPos: {x: 0, y: 0}
   pointFrom: {fileID: 0}
+  hasEnviromental: 0
   isPlaced: 0
   isClikable: 1
+  gridSize: 1
   isExplored: 0
 --- !u!1 &808892813
 GameObject:
@@ -7710,8 +7712,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridPos: {x: 0, y: 0}
   pointFrom: {fileID: 0}
+  hasEnviromental: 0
   isPlaced: 0
   isClikable: 1
+  gridSize: 1
   isExplored: 0
 --- !u!1 &1934662476
 GameObject:

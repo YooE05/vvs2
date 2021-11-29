@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public  int enemiesCount = 10;
+    public int enemiesCount = 10;
 
     [Range(0.1f, 60f)]
     [SerializeField]
@@ -23,21 +24,32 @@ public class EnemySpawner : MonoBehaviour
         isSpawning = false;
     }
     void Start()
-    {     
+    {
         countEnemiesText.text = enemiesCount.ToString();
     }
 
     public void SpawnEnemies()
     { StartCoroutine(Spawn(enemiesCount)); }
-     IEnumerator Spawn(int spawnCount)
+    IEnumerator Spawn(int spawnCount)
     {
+
+
         while (spawnCount > 0)
         {
-                GetComponent<AudioSource>().PlayOneShot(sfxSpawn, 0.05f);
+            GetComponent<AudioSource>().PlayOneShot(sfxSpawn, 0.05f);
+            Instantiate(enemyToSpawn, gameObject.transform.position, Quaternion.identity, gameObject.transform);
+
+            if (SceneManager.GetActiveScene().name == "SampleScene")
+            {
+                countEnemiesText.text = "∞";
+
+            }
+            else
+            {
                 spawnCount--;
-                Instantiate(enemyToSpawn, gameObject.transform.position, Quaternion.identity, gameObject.transform);
                 countEnemiesText.text = spawnCount.ToString();
-                yield return new WaitForSeconds(spawnDelay);
+            }
+            yield return new WaitForSeconds(spawnDelay);
         }
     }
 }
