@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class EnemyDamage : MonoBehaviour
 {
-    [SerializeField] int enemyHealth;
+    [SerializeField] float enemyHealth;
+    [SerializeField] float damageByBullet =1;
     [SerializeField] Collider meshCollider;
     [SerializeField] ParticleSystem hitFXPrefab;
     [SerializeField] ParticleSystem dieFXPrefab;
@@ -21,7 +22,7 @@ public class EnemyDamage : MonoBehaviour
     private void OnParticleCollision(GameObject other) 
     {
         GetComponent<AudioSource>().PlayOneShot(sfxHit, 0.1f);
-        enemyHealth--;
+        enemyHealth-= damageByBullet;
         hitFXPrefab.Play();
         if (enemyHealth < 0)
         {

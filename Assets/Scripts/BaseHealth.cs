@@ -21,10 +21,13 @@ public class BaseHealth : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        health -= damageByHit;
-        FindObjectOfType<GameController>().defeatEnemies++;
-        GetComponent<AudioSource>().PlayOneShot(sfxBaseAtack, 0.5f);
-        healthText.text = health.ToString();
+        if (health>0)
+        {
+            health -= damageByHit;
+            FindObjectOfType<GameController>().defeatEnemies++;
+            GetComponent<AudioSource>().PlayOneShot(sfxBaseAtack, 0.5f);
+            healthText.text = health.ToString();
+        }
     }
 
 }

@@ -81,6 +81,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHealth: 10
+  damageByBullet: 0.1
   meshCollider: {fileID: 5768909598334987114}
   hitFXPrefab: {fileID: 2439238632088560386}
   dieFXPrefab: {fileID: 7669405769937277376}
