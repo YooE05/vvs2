@@ -8,9 +8,11 @@ public class EnemySpawner : MonoBehaviour
 {
     public int enemiesCount = 10;
 
-    [Range(0.1f, 60f)]
-    [SerializeField]
-    float spawnDelay = 2f;
+    
+    [SerializeField] float startSpawnDelay = 4f;
+    [SerializeField] float finalSpawnDelay = 2f;
+    [SerializeField] float deltaSpawnDelay = 0.2f;
+    float crntSpawnDelay;
     [HideInInspector] public bool isSpawning;
 
     [SerializeField] AudioClip sfxSpawn;
@@ -21,6 +23,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void Awake()
     {
+        crntSpawnDelay = startSpawnDelay;
         isSpawning = false;
     }
     void Start()
@@ -49,7 +52,8 @@ public class EnemySpawner : MonoBehaviour
                 spawnCount--;
                 countEnemiesText.text = spawnCount.ToString();
             }
-            yield return new WaitForSeconds(spawnDelay);
+            yield return new WaitForSeconds(crntSpawnDelay);
+            crntSpawnDelay = Mathf.Clamp(crntSpawnDelay -= deltaSpawnDelay, finalSpawnDelay, crntSpawnDelay);
         }
     }
 }

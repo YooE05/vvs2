@@ -121,6 +121,7 @@
     <None Include="Assets\AurynSky\WinterArena\READ ME.txt" />
     <None Include="Assets\AurynSky\Desert Pack\READ ME.txt" />
     <None Include="Assets\EasyMainMenu\Scripts\Brightness\Brightness Effect.shader" />
+    <None Include="Assets\Quantum Theory\Quantum Arid\Documentation.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

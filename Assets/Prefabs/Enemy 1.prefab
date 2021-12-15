@@ -67,7 +67,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endFXPrefab: {fileID: 659312697913307611}
-  enemySpeed: 0.6
+  enemySpeed: 0.9
 --- !u!114 &6821656171778382688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,7 +81,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHealth: 10
-  damageByBullet: 0.1
+  damageByBullet: 1.2
   meshCollider: {fileID: 5768909598334987114}
   hitFXPrefab: {fileID: 2439238632088560386}
   dieFXPrefab: {fileID: 7669405769937277376}

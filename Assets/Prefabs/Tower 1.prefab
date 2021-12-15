@@ -4863,7 +4863,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotatedObj: {fileID: 4424482992667706407}
   target: {fileID: 0}
-  rangeOfTower: 6
+  rangeOfTower: 8
   waypoinoftower: {fileID: 0}
   shootFX: {fileID: 179848756}
 --- !u!1001 &4424920319170996927
