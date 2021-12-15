@@ -17,8 +17,8 @@ public class viewController : MonoBehaviour
     [SerializeField] GameObject pausePanel;
     public GameObject pauseButton;
     [SerializeField] Text resultText;
-    [SerializeField] Text HPText;
-    [SerializeField] Text scoreText;
+    [SerializeField] TextMeshProUGUI HPText;
+    [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] Text highscoreText;
 
     [HideInInspector] public bool isPause;

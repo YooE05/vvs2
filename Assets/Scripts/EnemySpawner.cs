@@ -8,9 +8,12 @@ public class EnemySpawner : MonoBehaviour
 {
     public int enemiesCount = 10;
 
-    [Range(0.1f, 60f)]
-    [SerializeField]
-    float spawnDelay = 2f;
+   // [Range(0.1f, 60f)]
+    [SerializeField]   float startSpawnDelay = 4f;
+    [SerializeField]   float finalSpawnDelay = 2f;
+    [SerializeField]   float deltaSpawnDelay = 0.2f;
+    float crntSpawnDelay;
+
     [HideInInspector] public bool isSpawning;
 
     [SerializeField] AudioClip sfxSpawn;
@@ -22,10 +25,19 @@ public class EnemySpawner : MonoBehaviour
     private void Awake()
     {
         isSpawning = false;
+        crntSpawnDelay = startSpawnDelay;
     }
     void Start()
     {
-        countEnemiesText.text = enemiesCount.ToString();
+        if (SceneManager.GetActiveScene().name == "SampleScene")
+        {
+            countEnemiesText.text = "∞";
+
+        }
+        else
+        {
+            countEnemiesText.text = enemiesCount.ToString();
+        }
     }
 
     public void SpawnEnemies()
@@ -39,17 +51,13 @@ public class EnemySpawner : MonoBehaviour
             GetComponent<AudioSource>().PlayOneShot(sfxSpawn, 0.05f);
             Instantiate(enemyToSpawn, gameObject.transform.position, Quaternion.identity, gameObject.transform);
 
-            if (SceneManager.GetActiveScene().name == "SampleScene")
-            {
-                countEnemiesText.text = "∞";
-
-            }
-            else
+            if (SceneManager.GetActiveScene().name != "SampleScene")
             {
                 spawnCount--;
                 countEnemiesText.text = spawnCount.ToString();
             }
-            yield return new WaitForSeconds(spawnDelay);
+            yield return new WaitForSeconds(crntSpawnDelay);
+            crntSpawnDelay=Mathf.Clamp(crntSpawnDelay-=deltaSpawnDelay,finalSpawnDelay,crntSpawnDelay);
         }
     }
 }

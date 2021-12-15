@@ -11360,8 +11360,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b918274d5480e94aa93fe3a338849ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemiesCount: 100
-  spawnDelay: 2
+  enemiesCount: 50
+  startSpawnDelay: 4
+  finalSpawnDelay: 3
+  deltaSpawnDelay: 0.15
   isSpawning: 0
   sfxSpawn: {fileID: 8300000, guid: 1430bde4175cf174c9021933c2a3def9, type: 3}
   countEnemiesText: {fileID: 1266837381}
@@ -28081,18 +28083,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 951698786}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &953517225 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4136936394565975904, guid: 3fa788c098c4af845a062e26e06baf8c,
-    type: 3}
-  m_PrefabInstance: {fileID: 318272018}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1de8b7b4b09e7f34d850cd8e070ac2b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &955191074
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33252,7 +33242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1001051db2f718843ad05bf9c37afaff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startWaypoint: {fileID: 953517225}
+  startWaypoint: {fileID: 1479747084}
   endWaypoint: {fileID: 1362976575}
 --- !u!1001 &1118378671
 PrefabInstance:
@@ -44493,6 +44483,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1479476085}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1479747084 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4136936394565975904, guid: 3fa788c098c4af845a062e26e06baf8c,
+    type: 3}
+  m_PrefabInstance: {fileID: 492173343}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1de8b7b4b09e7f34d850cd8e070ac2b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1482893364
 PrefabInstance:
   m_ObjectHideFlags: 0
