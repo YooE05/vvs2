@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/Desert/Desert2.unity
+- path: Assets/Scenes/Winter/Winter2.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
