@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EnemyDamage : MonoBehaviour
 {
-    [SerializeField] float enemyHealth;
-    [SerializeField] float damageByBullet =1;
+    public float enemyHealth;
+    public float damageByBullet =1;
     [SerializeField] Collider meshCollider;
     [SerializeField] ParticleSystem hitFXPrefab;
     [SerializeField] ParticleSystem dieFXPrefab;

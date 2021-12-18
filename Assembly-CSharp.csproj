@@ -119,6 +119,7 @@
     <None Include="Assets\EasyMainMenu\Standard Assets\Unity - Prototyping\Shaders\WorldCoordDiffuse.shader" />
     <None Include="Assets\AurynSky\Dungeon Pack\READ ME.txt" />
     <None Include="Assets\AurynSky\WinterArena\READ ME.txt" />
+    <None Include="Assets\Customizable Skybox\Stylized Sky\Shaders\Stylized Sky.shader" />
     <None Include="Assets\AurynSky\Desert Pack\READ ME.txt" />
     <None Include="Assets\EasyMainMenu\Scripts\Brightness\Brightness Effect.shader" />
     <None Include="Assets\Quantum Theory\Quantum Arid\Documentation.txt" />
@@ -711,6 +712,9 @@
     </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Postprocessing.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Editor.dll</HintPath>

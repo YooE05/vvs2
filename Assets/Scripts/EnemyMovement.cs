@@ -8,7 +8,7 @@ public class EnemyMovement : MonoBehaviour
 {
 
     [SerializeField] ParticleSystem endFXPrefab;
-    [SerializeField] float enemySpeed = 0.6f;
+    public float enemySpeed = 0.6f;
 
     void Start()
     {
