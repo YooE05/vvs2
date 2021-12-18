@@ -1,17 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 namespace EMM
 {
     public class MainMenuController : MonoBehaviour
     {
+
         public Animator MenuButtonsAnimator;
         public string newGameSceneName;
         public int quickSaveSlotID;
         public bool UseLevelSelectMenu;
-
+        GameObject title;
         [Header("Anims")]
         public string MainMenuToStartMenu;
         public string StartMenuToMainMenu;
@@ -49,6 +51,12 @@ namespace EMM
         // Use this for initialization
         void Start()
         {
+            foreach (Text text in FindObjectsOfType<Text>())
+            {
+                if (text.gameObject.tag=="Player")
+                { title = text.gameObject; }
+            }
+
             if (EasyAudioUtility.instance == null)
                 Instantiate(Resources.Load("Prefabs/EasyAudioUtility"));
 
@@ -79,7 +87,9 @@ namespace EMM
         public void FromStartMenuToNewGame()
         {
             //either open level select
-            if(UseLevelSelectMenu)
+
+            title.SetActive(false);
+            if (UseLevelSelectMenu)
                 MenuButtonsAnimator.Play(StartMenuToLevelSelectMenu);
             else
             {
@@ -96,6 +106,7 @@ namespace EMM
 
         public void FromLevelSelectMenuToStartMenu()
         {
+            title.SetActive(true);
             MenuButtonsAnimator.Play(LevelSelectMenuToStartMenu);
             PlayClickSound();
         }
