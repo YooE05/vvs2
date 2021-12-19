@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
-
+    DataController dataController;
     [HideInInspector] public EnemySpawner enemySpawner;
     public BaseHealth healthController;
     [SerializeField] viewController viewController;
@@ -15,11 +15,17 @@ public class GameController : MonoBehaviour
     public int defeatEnemies = 0;
     private void Awake()
     {
+        dataController = FindObjectOfType<DataController>();
         enemySpawner = GetComponent<EnemySpawner>();
         towerFactory = GetComponent<TowerFactory>();
     }
     void Start()
     {
+        foreach (var audio in FindObjectsOfType<AudioSource>())
+        {
+            audio.volume = audio.volume * dataController.volume;
+        }
+
         StartCoroutine(GameProcces());
     }
 
@@ -48,19 +54,7 @@ public class GameController : MonoBehaviour
     void EndGame()
     {
 
-        /*      isEndOfGame = true;
-              plMovement.isPause = true;
-
-              lastStage = stage;
-              stage = GameStage.ending;
-
-              healthController.StopGame();
-              //player.SetActive(false);
-
-              SaveScore();*/
-
         viewController.ShowRestartPanel(FindObjectOfType<GameController>());
-
 
     }
 

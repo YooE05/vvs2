@@ -12,6 +12,10 @@ namespace EMM
         public Text LevelDescriptionText;
         public Image LevelImage;
 
+        public Text Score;
+        public Text maxHealth;
+        public Text survivalScore;
+
         [HideInInspector]
         public List<AllLevelsData> AllLevelsData = new List<AllLevelsData>();
 
@@ -24,12 +28,13 @@ namespace EMM
         // Use this for initialization
         void Start()
         {
+            survivalScore.text = FindObjectOfType<DataController>().survivalScore.ToString();
             //get all levels count
             _totalLevels = AllLevelsData.Count;
 
             //init
-            firstLoad= true;
-            _currentSelectedLevelCount = FindObjectOfType<DontDestroySettings>().getLastLevelIndex();
+            firstLoad = true;
+            _currentSelectedLevelCount = FindObjectOfType<DataController>().getLastLevelIndex();
             ChangeLevel();
         }
 
@@ -43,9 +48,34 @@ namespace EMM
                     _currentSelectedLevelCount++;
                 else
                     _currentSelectedLevelCount = 0;
-                FindObjectOfType<DontDestroySettings>().changeLastLevelIndex(_currentSelectedLevelCount);
+                FindObjectOfType<DataController>().changeLastLevelIndex(_currentSelectedLevelCount);
             }
-            
+
+            switch (_currentSelectedLevelCount)
+            {
+                case 0:
+                    { maxHealth.text = "10"; }
+                    break;
+                case 1:
+                    { maxHealth.text = "5"; }
+                    break;
+                case 2:
+                    { maxHealth.text = "5"; }
+                    break;
+                case 3:
+                    { maxHealth.text = "5"; }
+                    break;
+                case 4:
+                    { maxHealth.text = "5"; }
+                    break;
+                case 5:
+                    { maxHealth.text = "3"; }
+                    break;
+                default:
+                    break;
+            }
+            Score.text = FindObjectOfType<DataController>().getLevelScore(_currentSelectedLevelCount).ToString();
+
             //set UI
             LevelTitleText.text = AllLevelsData[_currentSelectedLevelCount].LevelTitle;
             LevelDescriptionText.text = AllLevelsData[_currentSelectedLevelCount].LevelDescription;
@@ -58,7 +88,7 @@ namespace EMM
             else
                 _currentSelectedLevelCount = 0;*/
 
-            PlayClickSound(); 
+            PlayClickSound();
         }
         public void ChangeLevelBack()
         {
@@ -70,8 +100,33 @@ namespace EMM
                     _currentSelectedLevelCount--;
                 else
                     _currentSelectedLevelCount = _totalLevels - 1;
-                FindObjectOfType<DontDestroySettings>().changeLastLevelIndex(_currentSelectedLevelCount);
+                FindObjectOfType<DataController>().changeLastLevelIndex(_currentSelectedLevelCount);
             }
+
+            switch (_currentSelectedLevelCount)
+            {
+                case 0:
+                    { maxHealth.text = "10"; }
+                    break;
+                case 1:
+                    { maxHealth.text = "5"; }
+                    break;
+                case 2:
+                    { maxHealth.text = "5"; }
+                    break;
+                case 3:
+                    { maxHealth.text = "5"; }
+                    break;
+                case 4:
+                    { maxHealth.text = "5"; }
+                    break;
+                case 5:
+                    { maxHealth.text = "3"; }
+                    break;
+                default:
+                    break;
+            }
+            Score.text = FindObjectOfType<DataController>().getLevelScore(_currentSelectedLevelCount).ToString();
             //set UI
             LevelTitleText.text = AllLevelsData[_currentSelectedLevelCount].LevelTitle;
             LevelDescriptionText.text = AllLevelsData[_currentSelectedLevelCount].LevelDescription;
@@ -79,10 +134,10 @@ namespace EMM
             _currentSelectedLevelSceneName = AllLevelsData[_currentSelectedLevelCount].SceneToLoad;
 
             //increment count
-           /* if (_currentSelectedLevelCount!=0)
-                _currentSelectedLevelCount--;
-            else
-                _currentSelectedLevelCount = _totalLevels-1;*/
+            /* if (_currentSelectedLevelCount!=0)
+                 _currentSelectedLevelCount--;
+             else
+                 _currentSelectedLevelCount = _totalLevels-1;*/
 
             PlayClickSound();
         }

@@ -25,7 +25,7 @@ public class BaseHealth : MonoBehaviour
         {
             health -= damageByHit;
             FindObjectOfType<GameController>().defeatEnemies++;
-            GetComponent<AudioSource>().PlayOneShot(sfxBaseAtack, 0.5f);
+            GetComponent<AudioSource>().PlayOneShot(sfxBaseAtack, 0.5f * FindObjectOfType<DataController>().volume);
             healthText.text = health.ToString();
         }
     }

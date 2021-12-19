@@ -108,12 +108,13 @@
     <Compile Include="Assets\EasyMainMenu\Scripts\Main Menu Scripts\New Main Menu\MainMenuController.cs" />
     <Compile Include="Assets\EasyMainMenu\Scripts\Main Menu Scripts\New Main Menu\GraphicsMenuController.cs" />
     <Compile Include="Assets\EasyMainMenu\Scripts\Brightness\BrightnessEffect.cs" />
-    <Compile Include="Assets\Scripts\DontDestroySettings.cs" />
+    <Compile Include="Assets\Scripts\DataController.cs" />
     <Compile Include="Assets\EasyMainMenu\Scripts\inGame Scripts\SaveGame Scripts\SaveGameUI.cs" />
     <Compile Include="Assets\EasyMainMenu\Scripts\EasyInputUtility\Scripts\EIU_RebindButton.cs" />
     <Compile Include="Assets\AurynSky\WinterArena\Scripts\ChestDemo.cs" />
     <Compile Include="Assets\Scripts\EnemyMovement.cs" />
     <Compile Include="Assets\EasyMainMenu\Scripts\FPSCounter.cs" />
+    <Compile Include="Assets\Scripts\Data.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\EasyMainMenu\Standard Assets\Unity - Prototyping\Shaders\WorldCoordDiffuse.shader" />

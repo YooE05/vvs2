@@ -59,8 +59,9 @@ namespace EMM
 
             foreach (EasyAudioUtility_Helper h in EasyAudioUtility.instance.helper)
             {
-                h.source.volume = SoundSlider.value;
-                h.volume = SoundSlider.value;
+                h.source.volume = Mathf.Clamp(SoundSlider.value,0f,0.6f);
+                h.volume = Mathf.Clamp(SoundSlider.value, 0f, 0.6f); ;
+                FindObjectOfType<DataController>().volume = SoundSlider.value;
             }
 
             PlayerPrefs.SetFloat("_SoundsValue", SoundSlider.value);

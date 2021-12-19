@@ -53,22 +53,22 @@ namespace EMM
 
                 //ULTRA
                 case 00:
-                    TextureQualityValue.text = "ULTRA";
+                    TextureQualityValue.text = "Ультра";
                     break;
 
                 //HIGH
                 case 01:
-                    TextureQualityValue.text = "HIGH";
+                    TextureQualityValue.text = "Высокие";
                     break;
 
                 //MEDIUM
                 case 02:
-                    TextureQualityValue.text = "MEDIUM";
+                    TextureQualityValue.text = "Средние";
                     break;
 
                 //LOW
                 case 03:
-                    TextureQualityValue.text = "LOW";
+                    TextureQualityValue.text = "Низкие";
                     break;
 
             }
@@ -85,25 +85,25 @@ namespace EMM
                 //ULTRA
                 case 00:
                     i = 1;
-                    TextureQualityValue.text = "High";
+                    TextureQualityValue.text = "Высокие";
                     break;
 
                 //HIGH
                 case 01:
                     i = 2;
-                    TextureQualityValue.text = "Medium";
+                    TextureQualityValue.text = "Средние";
                     break;
 
                 //MEDIUM
                 case 02:
                     i = 3;
-                    TextureQualityValue.text = "Low";
+                    TextureQualityValue.text = "Низкие";
                     break;
 
                 //LOW
                 case 03:
                     i = 0;
-                    TextureQualityValue.text = "Ultra";
+                    TextureQualityValue.text = "Ультра";
                     break;
 
             }
@@ -130,7 +130,7 @@ namespace EMM
             {
                 //DISABLED
                 case 00:
-                    AntiAliasingValue.text = "Disabled";
+                    AntiAliasingValue.text = "Выкл";
                     break;
 
                 //2X
@@ -179,7 +179,7 @@ namespace EMM
                 //8X
                 case 08:
                     i = 0;
-                    AntiAliasingValue.text = "Disabled";
+                    AntiAliasingValue.text = "Выкл";
                     break;
             }
 
@@ -207,19 +207,19 @@ namespace EMM
             {
                 //DISABLED
                 case "Disable":
-                    ShadowsValue.text = "Disable";
+                    ShadowsValue.text = "Выкл";
                     QualitySettings.shadows = ShadowQuality.Disable;
                     break;
 
                 //HARD
                 case "HardOnly":
-                    ShadowsValue.text = "Hard";
+                    ShadowsValue.text = "Жёстк";
                     QualitySettings.shadows = ShadowQuality.HardOnly;
                     break;
 
                 //HARD & SOFT
                 case "All":
-                    ShadowsValue.text = "Hard & Soft";
+                    ShadowsValue.text = "Жёстк & Мягк";
                     QualitySettings.shadows = ShadowQuality.All;
                     break;
             }
@@ -235,21 +235,21 @@ namespace EMM
                 //DISABLED
                 case "Disable":
                     i = "HardOnly";
-                    ShadowsValue.text = "Hard";
+                    ShadowsValue.text = "Жёстк";
                     QualitySettings.shadows = ShadowQuality.HardOnly;
                     break;
 
                 //HARD
                 case "HardOnly":
                     i = "All";
-                    ShadowsValue.text = "Hard & Soft";
+                    ShadowsValue.text = "Жёстк & Мягк";
                     QualitySettings.shadows = ShadowQuality.All;
                     break;
 
                 //HARD & SOFT
                 case "All":
                     i = "Disable";
-                    ShadowsValue.text = "Disabled";
+                    ShadowsValue.text = "Выкл";
                     QualitySettings.shadows = ShadowQuality.Disable;
                     break;
             }
@@ -274,12 +274,12 @@ namespace EMM
             {
                 //DISABLED
                 case 00:
-                    VSyncValue.text = "Disabled";
+                    VSyncValue.text = "Выкл";
                     break;
 
                 //ENABLED
                 case 01:
-                    VSyncValue.text = "Enabled";
+                    VSyncValue.text = "Вкл";
                     break;
 
             }
@@ -297,13 +297,13 @@ namespace EMM
                 //DISABLED
                 case 00:
                     i = 1;
-                    VSyncValue.text = "Enabled";
+                    VSyncValue.text = "Вкл";
                     break;
 
                 //ENABLED
                 case 01:
                     i = 0;
-                    VSyncValue.text = "Disabled";
+                    VSyncValue.text = "Выкл";
                     break;
 
             }

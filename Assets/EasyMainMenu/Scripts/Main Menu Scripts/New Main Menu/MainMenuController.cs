@@ -75,6 +75,7 @@ namespace EMM
         public void FromMainMenuToStartMenu()
         {
             MenuButtonsAnimator.Play(MainMenuToStartMenu);
+
             PlayClickSound();
         }
 
@@ -114,8 +115,9 @@ namespace EMM
         public void FromStartMenuToLoadSlotMenu()
         {
             PlayClickSound();
+            FindObjectOfType<DataController>().isSurvival = true;
             SceneManager.LoadScene("SampleScene");
-            //MenuButtonsAnimator.Play(StartMenuToLoadSlotMenu);
+
         }
 
         public void FromLoadSlotMenuToStartMenu()

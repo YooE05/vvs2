@@ -21,12 +21,12 @@ public class EnemyDamage : MonoBehaviour
 
     private void OnParticleCollision(GameObject other) 
     {
-        GetComponent<AudioSource>().PlayOneShot(sfxHit, 0.1f);
+        GetComponent<AudioSource>().PlayOneShot(sfxHit, 0.05f*FindObjectOfType<DataController>().volume);
         enemyHealth-= damageByBullet;
         hitFXPrefab.Play();
         if (enemyHealth < 0)
         {
-            AudioSource.PlayClipAtPoint(sfxDie, Camera.main.transform.position, 0.5f);
+            AudioSource.PlayClipAtPoint(sfxDie, Camera.main.transform.position, 0.25f * FindObjectOfType<DataController>().volume);
             var dieFX = Instantiate(dieFXPrefab, transform.position, Quaternion.identity);
             dieFX.Play();
             Destroy(gameObject);

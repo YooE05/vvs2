@@ -271,15 +271,29 @@ public class LoadingScreen : MonoBehaviour {
             	}else
             	{
             		lastSprite = Random.Range(0,LoadingScreenImages.Length);
-            		defaultLoadingScreenImage.sprite = LoadingScreenImages[lastSprite];
-            	}
+                    if(cacheSprite != lastSprite)
+                    {defaultLoadingScreenImage.sprite = LoadingScreenImages[lastSprite]; }
+                    else
+                    {
+                        lastSprite = Random.Range(0, LoadingScreenImages.Length);
+                        if (cacheSprite != lastSprite)
+                        { defaultLoadingScreenImage.sprite = LoadingScreenImages[lastSprite]; }
+                        else
+                        {
+                            lastSprite = Random.Range(0, LoadingScreenImages.Length);
+                             defaultLoadingScreenImage.sprite = LoadingScreenImages[lastSprite]; 
+                        }
+                    }
+
+                }
             } 
             
             
             CancelInvoke("TransitionFader");
             Invoke("TransitionFader", transitionDuration - 0.5f);
             i++;
-        }else
+        }
+        else
         {
             i = 0;
             defaultLoadingScreenImage.sprite = LoadingScreenImages[i];

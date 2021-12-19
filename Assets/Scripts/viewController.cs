@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class viewController : MonoBehaviour
 {
+
+    DataController dataController;
     [Header("UI")]
 
     public Text preLoadText;
@@ -25,6 +27,7 @@ public class viewController : MonoBehaviour
 
     private void Awake()
     {
+        dataController = FindObjectOfType<DataController>();
         isPause = true;
     }
     public void StartGame()
@@ -37,6 +40,8 @@ public class viewController : MonoBehaviour
     }
     public void ShowRestartPanel(GameController gameController)
     {
+        int killedEnemy = gameController.defeatEnemies - 10;
+
         Time.timeScale = 0f;
         HP.gameObject.SetActive(false);
         enemiesCountText.gameObject.SetActive(false);
@@ -44,17 +49,40 @@ public class viewController : MonoBehaviour
         restartPanel.SetActive(true);
         pauseButton.SetActive(false);
 
-        if (FindObjectOfType<BaseHealth>().health>0)
+        if (FindObjectOfType<BaseHealth>().health > 0)
         {
             resultText.text = "Поздравляем. Вы победили!";
+
+            if (dataController.getLevelScore(dataController.getLastLevelIndex()) < FindObjectOfType<BaseHealth>().health)
+            {
+                dataController.SetScore(FindObjectOfType<BaseHealth>().health);
+                dataController.SaveData();
+            }
+
         }
-        else 
+        else
         {
             resultText.text = "Не отчаиваяйся, получится в следующий раз!";
         }
 
-        HPText.text = FindObjectOfType<BaseHealth>().health.ToString();
-        scoreText.text = (gameController.defeatEnemies - FindObjectOfType<BaseHealth>().startHealth+ FindObjectOfType<BaseHealth>().health).ToString();
+        if (dataController.isSurvival)
+        {
+            if (dataController.survivalScore < killedEnemy)
+            {
+                dataController.survivalScore = killedEnemy;
+                dataController.SaveData();
+            }
+
+
+            HPText.text = killedEnemy.ToString();
+            scoreText.text = dataController.survivalScore.ToString();
+        }
+        else
+        {
+            HPText.text = FindObjectOfType<BaseHealth>().health.ToString();
+            scoreText.text = dataController.getLevelScore(dataController.getLastLevelIndex()).ToString();
+        }
+
     }
 
 
@@ -62,7 +90,7 @@ public class viewController : MonoBehaviour
     {
 
         pausePanel.SetActive(true);
-       isPause = true;
+        isPause = true;
 
         pauseButton.SetActive(false);
 
@@ -71,7 +99,7 @@ public class viewController : MonoBehaviour
 
     public void Resume()
     {
-       
+
         Time.timeScale = 1;
 
         isPause = false;
@@ -83,11 +111,7 @@ public class viewController : MonoBehaviour
     public void GoToMenu()
     {
         Time.timeScale = 1;
-       /* if (FindObjectOfType<MenuSettings>())
-        {
-            MenuSettings menusettings = FindObjectOfType<MenuSettings>();
-            DestroyObject(menusettings.gameObject);
-        }*/
+        dataController.isSurvival = false;
         SceneManager.LoadScene("MainMenu");
     }
 
