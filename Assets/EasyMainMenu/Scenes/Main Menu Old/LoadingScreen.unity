@@ -1114,7 +1114,6 @@ MonoBehaviour:
   showRandomImageTransition: 1
   LoadingScreenImages:
   - {fileID: 21300000, guid: 20c396bc7754f8f42aec2a9ac76276de, type: 3}
-  - {fileID: 21300000, guid: ada7b4c0f26fc334bae95f411b72c3c7, type: 3}
   - {fileID: 21300000, guid: 474be791396127647a4294c83d2e8988, type: 3}
   - {fileID: 21300000, guid: 0ac7f3ee28ccf414c9c5fa3b53b8f05b, type: 3}
   transitionDuration: 3

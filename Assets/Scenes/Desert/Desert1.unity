@@ -11344,7 +11344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemiesCount: 20
-  enemyHealth: 16
+  enemyHealth: 18
   damageByBullet: 1
   enSpeed: 0.22
   startSpawnDelay: 3.8
@@ -33724,7 +33724,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4770205653744976, guid: 4a6f1bcc96a69fb4ab984a67496aff32, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 33.7
+      value: 34.046
       objectReference: {fileID: 0}
     - target: {fileID: 4770205653744976, guid: 4a6f1bcc96a69fb4ab984a67496aff32, type: 3}
       propertyPath: m_LocalRotation.w

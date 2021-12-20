@@ -58,6 +58,7 @@
     <Compile Include="Assets\EasyMainMenu\Scripts\EasyLoginUtility\SimpleShake.cs" />
     <Compile Include="Assets\EasyMainMenu\Scripts\inGame Scripts\SaveGame Scripts\SaveSlotIdentifier.cs" />
     <Compile Include="Assets\EasyMainMenu\Standard Assets\ImageEffects\Scripts\ImageEffects.cs" />
+    <Compile Include="Assets\Scripts\Data.cs" />
     <Compile Include="Assets\EasyMainMenu\Scripts\inGame Scripts\LoadGame Scripts\LoadSlotIdentifier.cs" />
     <Compile Include="Assets\EasyMainMenu\Scripts\Main Menu Scripts\OptionsController_Graphics.cs" />
     <Compile Include="Assets\EasyMainMenu\Scripts\EasyInputUtility\Scripts\EIU_DebugItem.cs" />
@@ -114,7 +115,6 @@
     <Compile Include="Assets\AurynSky\WinterArena\Scripts\ChestDemo.cs" />
     <Compile Include="Assets\Scripts\EnemyMovement.cs" />
     <Compile Include="Assets\EasyMainMenu\Scripts\FPSCounter.cs" />
-    <Compile Include="Assets\Scripts\Data.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\EasyMainMenu\Standard Assets\Unity - Prototyping\Shaders\WorldCoordDiffuse.shader" />
