@@ -31,11 +31,11 @@ public class GameController : MonoBehaviour
 
     IEnumerator GameProcces()
     {
-        /*  viewController.preLoadText.text = "Ready?";
+          viewController.preLoadText.text = "Ready?";
           yield return new WaitForSeconds(3f);
           viewController.preLoadText.text = "GO";
           yield return new WaitForSeconds(1f);
-  */
+  
         viewController.StartGame();
 
         //towerFactory.isSpawning = true;
